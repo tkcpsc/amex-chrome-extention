@@ -1,0 +1,10 @@
+{
+  "mode": "email",
+  "to": "you@example.com",
+  "from": "you@gmail.com",
+  "smtpHost": "smtp.gmail.com",
+  "smtpPort": 465,
+  "smtpUser": "you@gmail.com",
+  "keychainService": "amex-offers-smtp",
+  "snapshotDir": "~/Downloads"
+}

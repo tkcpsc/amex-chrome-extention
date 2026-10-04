@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amex Offers (dev preview)</title>
+  <link rel="stylesheet" href="../extension/dashboard/dashboard.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div><h1>Amex Offers</h1><p id="sync-line" class="muted"></p></div>
+      <div class="top-actions">
+        <a class="btn" href="https://global.americanexpress.com/offers" target="_blank" rel="noopener noreferrer">Open Amex Offers ↗</a>
+        <button id="btn-export" class="btn primary">Save snapshot for email</button>
+      </div>
+    </div>
+    <nav class="wrap tabs" aria-label="Views">
+      <a href="#week" data-tab="week">This week</a>
+      <a href="#month" data-tab="month">This month</a>
+      <a href="#shop" data-tab="shop">Before you buy</a>
+      <a href="#trips" data-tab="trips">Trip ideas</a>
+      <a href="#all" data-tab="all">All offers</a>
+      <a href="#transfers" data-tab="transfers">Transfers</a>
+      <a href="#settings" data-tab="settings">Settings</a>
+    </nav>
+  </header>
+  <main id="main" class="wrap"></main>
+  <script src="chrome-shim.js"></script>
+  <script type="module" src="../extension/dashboard/dashboard.js"></script>
+</body>
+</html>

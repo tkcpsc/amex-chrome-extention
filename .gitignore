@@ -1,0 +1,9 @@
+# Personal config and generated output — never commit
+emailer/config.json
+emailer/out/
+*.log
+amex-offers-snapshot*.json
+amex-offers-backup*.json
+.DS_Store
+node_modules/
+dev/sample-snapshot.json

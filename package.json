@@ -1,0 +1,17 @@
+{
+  "name": "amex-offers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local-only Amex Offers optimizer: Chrome extension + weekly digest. No dependencies.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "digest": "node emailer/send-digest.js",
+    "digest:preview": "node emailer/send-digest.js --dry-run",
+    "digest:sample": "node dev/make-sample-snapshot.js && node emailer/send-digest.js --dry-run --period=week --snapshot=dev/sample-snapshot.json",
+    "digest:check": "node emailer/send-digest.js --check"
+  }
+}

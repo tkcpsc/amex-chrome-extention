@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MOCK Amex Offers (dev fixture)</title>
+<style>
+  body { font-family: Helvetica, Arial, sans-serif; margin: 0; background: #f7f8f9; color: #222; }
+  .warn { background: #fffbe6; padding: 8px 20px; font-size: 13px; }
+  header { background: #00175a; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; }
+  header button { background: none; color: #fff; border: 1px solid #fff5; border-radius: 4px; padding: 6px 10px; text-align: left; }
+  section { padding: 12px 20px; }
+  .added { display: flex; gap: 12px; }
+  .added > div { background: #fff; border: 1px solid #ddd; padding: 10px; border-radius: 6px; }
+  ._listViewRow_tupp2_26 { display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 12px; margin: 8px 0; }
+  ._listViewRow_tupp2_26 img { background: #eee; }
+  .flex { display: flex; gap: 8px; } .flex-column { flex-direction: column; } .flex-item-grow { flex: 1; justify-content: space-between; }
+  ._iconButton_e2bua_34 { width: 36px; height: 36px; border-radius: 50%; background: #006fcf; color: #fff; border: 0; cursor: pointer; }
+  .promo { background: #fff; border: 1px dashed #aaa; padding: 12px; margin: 8px 0; border-radius: 6px; }
+</style>
+</head>
+<body>
+  <div class="warn">DEV FIXTURE — mirrors the structure of the real Amex Offers page (tile markup copied from it) for testing. Not affiliated with American Express.</div>
+  <header>
+    <span>Menu</span>
+    <button aria-haspopup="listbox"><div>American Express Gold Card</div><div>••••12345</div></button>
+    <a href="/dev/logged-out.html">Log Out</a>
+  </header>
+
+  <section>
+    <div>
+      <h2>Added to Card (3)</h2>
+      <a id="view-all" href="/dev/offers/enrolled.html">View All</a>
+      <div class="added">
+        <div><b>Airbnb</b><p>Spend $250 or more, earn $30 back</p><p>Expires 10/20/26</p></div>
+        <div><b>Annual Uber One Membership – Gold Card 60th</b><p>Earn up to $96 back, one time, when you purchase an annual Uber One membership.</p><p>Expires 10/30/26</p></div>
+        <div><b>lululemon</b><p>Spend $120 or more, earn $25 back</p><p>Expires 11/1/26</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recommended Offers</h2>
+    <div id="list"></div>
+  </section>
+  <p class="warn">Last Login: 3 Oct 2026 @ 11:08</p>
+
+<template id="row">
+  <div class="flex flex-column-sm-down margin-auto border pad-2-md-up col-xs-12 margin-2-t radius-container-sm pad-0-sm-down _listViewRow_tupp2_26"><div class="flex flex-justify-center flex-align-items-center col-md-3 col-xs-3 col-lg-2 margin-auto-lr-sm-down pad-0-sm-down margin-2-t-sm-down margin-2-r-md-up position-relative"><div><img alt="" style="object-fit: contain; width: 160px; height: 72px;"></div></div><div class="flex flex-justify-between flex-item-grow pad-2-sm-down margin-auto margin-0-lr flex-column-sm-down"><div class="flex flex-column margin-1-t-sm-down pad-0 col-xs-12 col-md-7 col-lg-8 flex-justify-between"><div data-testid="overflowTextContainer" class="_overflowText_1n2kw_1 " style="-webkit-line-clamp: 1;"><h3 class="heading-sans-small-medium"><span class="m"></span></h3></div><div data-testid="overflowTextContainer" class="_overflowText_1n2kw_1 body color-text-regular" style="-webkit-line-clamp: 3;"><span class="d"></span></div><p class="false color-text-subtle body-small e"></p><div><button type="button" data-testid="merchantOfferTermsLink" class="_btn_jsa6y_25 _tertiary_jsa6y_156 color-text-link pad-0-lr" aria-live="polite" aria-atomic="true"><span>Terms apply</span></button></div></div><div class="margin-1-t-sm-down flex col-md-5 col-lg-4 flex-align-items-center pad-0-sm-down"><button type="button" data-testid="merchantOfferDetailsLink" class="_btn_jsa6y_25 _secondary_jsa6y_110 color-text-link pad-0-lr-sm-down pad-1-lr-md-up pad-3-lr-xl-up border-0 margin-auto-l-md-up margin-0-r-md-up text-nowrap" aria-live="polite" aria-atomic="true"><span>View Details</span></button><button type="button" data-testid="merchantOfferListAddButton" title="add to list card" class="_iconButton_e2bua_34 _round_e2bua_215 _primary_e2bua_51 margin-1-t-sm-down pad-1-sm-down margin-auto-l-sm-down margin-0-r margin-1-l-md-up"><div class="_iconContainer_e2bua_42"><span class="_srOnly_jfnet_1"></span><span class="_icon_1apx5_1" data-dls-icon-size="md"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="1em" height="1em"><path d="M45.5 21.5h-19v-19a2.5 2.5 0 1 0-5 0v19h-19a2.5 2.5 0 1 0 0 5h19v19a2.5 2.5 0 1 0 5 0v-19h19a2.5 2.5 0 1 0 0-5"></path></svg></span></div></button></div></div></div>
+</template>
+
+<script>
+  const OFFERS = [
+    ['Hollywood Feed', 'Spend $100 or more, earn $20 back', '12/31/26'],
+    ['PROMO', 'Explore Your Business Offer', 'Unlock business value and earn rewards. Apply for the Blue Business® Plus Card, and you can earn 75,000 Membership Rewards® points. Terms apply.', 'Learn More'],
+    ['PROMO', 'Share the Gold Card® Benefits', 'Add an Additional Gold Card® Member and earn 10,000 Membership Rewards® points after they spend $2,000 in purchases in the first six months. Terms apply.', 'Add a Member'],
+    ['YouTube Premium - Uninterrupted Videos and Music', 'Spend $15.99 or more, earn $8 back, up to 2 times (total of $16).', '11/20/26'],
+    ['NEW', 'JetBlue', 'Spend $300 or more, earn $60 back', '12/14/26'],
+    ['Auntie Anne\'s', 'Earn 10% back on a single purchase, up to a total of $4', '10/31/26'],
+    ['Fanatics.com - Sports Apparel, Jerseys, Hats, Gear and more', 'Earn +5 Membership Rewards® points per eligible dollar spent, up to 15,000 pts', '1/1/27'],
+    ['HBO Max - Stream HBO, Movies, News - Annual Subscription', 'Spend $99 or more, earn $25', '1/15/27'],
+    ['PROMO', '30% More Hilton Honors Points', 'Transfer Membership Rewards® points to Hilton Honors and get 30% more Hilton Honors Points through 10/14/2026. Terms apply.', 'View Offer'],
+    ['Dior Beauty', 'Spend $150 or more, earn 4,500 Membership Rewards® points', '12/31/26'],
+    ['NEW', 'Peets.com - Hand Roasted Coffee Delivered Nationwide', 'Spend $30 or more, earn 1,500 Membership Rewards® points', '11/14/26'],
+    ['DISH Network', 'Spend $94.99 or more, earn $80 back', '12/11/26'],
+    ['Away - Luggage & Travel Accessories', 'Spend $300 or more, earn $60 back', '11/30/26'],
+    ['Warby Parker - Contacts & Eyeglasses', 'Spend $95 or more, earn $20 back', '12/31/26'],
+  ];
+  const list = document.getElementById('list');
+  const tpl = document.getElementById('row');
+  for (const o of OFFERS) {
+    if (o[0] === 'PROMO') {
+      const p = document.createElement('div');
+      p.className = 'promo';
+      p.innerHTML = `<b>${o[1]}</b><p>${o[2]}</p><a href="https://pieventscapture.americanexpress.com/fake-${o[3].replace(/ /g, '')}">${o[3]}</a>`;
+      list.append(p);
+      continue;
+    }
+    if (o[0] === 'NEW') { const n = document.createElement('div'); n.textContent = 'NEW'; list.append(n); o.shift(); }
+    const [name, desc, exp] = o;
+    const row = tpl.content.firstElementChild.cloneNode(true);
+    row.querySelector('img').alt = name;
+    row.querySelector('.m').textContent = name;
+    row.querySelector('.d').textContent = desc;
+    row.querySelector('.e').textContent = `Expires ${exp}`;
+    // Assumed behavior after "+": the row leaves Recommended Offers.
+    row.querySelector('[data-testid="merchantOfferListAddButton"]').addEventListener('click', () => setTimeout(() => row.remove(), 500));
+    list.append(row);
+  }
+  // Record any click on a link so the test can prove none happened.
+  window.__linkClicks = [];
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href]');
+    if (a) { window.__linkClicks.push(a.textContent); e.preventDefault(); }
+  }, true);
+</script>
+<script src="../chrome-shim.js"></script>
+<script src="../../extension/lib/partners-data.js"></script>
+<script src="../../extension/content/scrape.js"></script>
+<script src="../../extension/content/content.js"></script>
+</body>
+</html>

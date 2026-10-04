@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Amex Offers Optimizer (local)",
+  "version": "1.0.0",
+  "description": "Personal, local-only tool: adds your Amex Offers to your card and ranks offers and transfer bonuses. No servers, no credentials.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://global.americanexpress.com/*"],
+  "action": {
+    "default_title": "Amex Offers",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://global.americanexpress.com/*"],
+      "js": ["lib/partners-data.js", "content/scrape.js", "content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; object-src 'none'; connect-src 'none'; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+  }
+}

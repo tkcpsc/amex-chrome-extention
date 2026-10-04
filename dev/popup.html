@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Amex Offers popup (dev preview)</title>
+  <link rel="stylesheet" href="../extension/popup/popup.css">
+</head>
+<body>
+  <header>
+    <strong>Amex Offers</strong>
+    <span id="last-scan" class="muted"></span>
+  </header>
+
+  <section id="shop" class="shop">
+    <input id="shop-q" type="search" placeholder="What are you buying? e.g. suitcase" aria-label="What are you buying?" autocomplete="off">
+    <input id="shop-cart" type="number" min="0" step="0.01" placeholder="Cart $ (optional)" aria-label="Cart total in dollars">
+    <ul id="shop-results" class="shop-results" hidden></ul>
+  </section>
+
+  <section id="not-amex" hidden>
+    <p>Open your Amex Offers page (you log in yourself), then click the extension again.</p>
+    <button id="open-offers" class="primary">Open Amex Offers</button>
+    <p class="muted small">Already on Amex? Reload the tab once after installing the extension.</p>
+  </section>
+
+  <section id="controls" hidden>
+    <label class="field">
+      <span>Card</span>
+      <input id="card-label" type="text" placeholder="e.g. Platinum ••1005" maxlength="60">
+    </label>
+
+    <div id="offers-actions">
+      <button id="btn-scan">Scan offers (read-only)</button>
+      <button id="btn-preview">Preview what will be added</button>
+      <button id="btn-enroll" class="primary">Add all offers to this card</button>
+    </div>
+    <div id="rewards-actions" hidden>
+      <button id="btn-transfers" class="primary">Scan transfer bonuses</button>
+    </div>
+    <p id="wrong-page" class="muted small" hidden>
+      Go to <b>Offers</b> to add offers, or to <b>Membership Rewards → Transfer Points</b> to read transfer bonuses.
+    </p>
+    <button id="btn-stop" class="danger" hidden>Stop</button>
+    <button id="btn-diagnose" class="subtle">Copy diagnostic report</button>
+  </section>
+
+  <div id="status" role="status" aria-live="polite"></div>
+  <ul id="preview" class="preview" hidden></ul>
+  <textarea id="report" class="report" readonly hidden aria-label="Diagnostic report"></textarea>
+
+  <footer>
+    <button id="btn-dashboard">Open dashboard</button>
+    <button id="btn-snapshot">Save snapshot for email</button>
+  </footer>
+
+  <script src="chrome-shim.js"></script>
+  <script type="module" src="../extension/popup/popup.js"></script>
+</body>
+</html>
